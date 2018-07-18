@@ -171,6 +171,8 @@ RUN set -eux; \
 		libssl-dev \
 		libxml2-dev \
 		zlib1g-dev \
+		libpq-dev \
+		libzip-dev \
 		${PHP_EXTRA_BUILD_DEPS:-} \
 	; \
 	rm -rf /var/lib/apt/lists/*; \
@@ -216,6 +218,10 @@ RUN set -eux; \
 		--with-libedit \
 		--with-openssl \
 		--with-zlib \
+		--enable-intl \
+		--with-pgsql \
+		--with-pdo-pgsql \
+		--enable-zip \
 		\
 # bundled pcre does not support JIT on s390x
 # https://manpages.debian.org/stretch/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
