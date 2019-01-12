@@ -8,12 +8,12 @@
 
 ```
 $ cd 7.2
-$ docker build -t kaz29/php-apache:7.2.12 .
-$ docker tag kaz29/php-apache:7.2.12 kaz29/php-apache:7.2
-$ docker tag kaz29/php-apache:7.2.12 kaz29/php-apache:latest
-$ docker push az29/php-apache:7.2.12
-$ docker push az29/php-apache:7.2
-$ docker push az29/php-apache:latest
+$ docker build -t kaz29/php-apache:7.2.14 .
+$ docker tag kaz29/php-apache:7.2.14 kaz29/php-apache:7.2
+$ docker tag kaz29/php-apache:7.2.14 kaz29/php-apache:latest
+$ docker push kaz29/php-apache:7.2.14
+$ docker push kaz29/php-apache:7.2
+$ docker push kaz29/php-apache:latest
 
 $ docker build -f Dockerfile.mysql -t kaz29/php-apache:7.2-mysql .
 

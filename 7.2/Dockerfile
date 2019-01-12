@@ -115,9 +115,9 @@ ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 ENV GPG_KEYS 1729F83938DA44E27BA0F4D3DBDB397470D12172 B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F
 
 ######################### update時は下記を変更 ######################################################################
-ENV PHP_VERSION 7.2.12
-ENV PHP_URL="https://secure.php.net/get/php-7.2.12.tar.xz/from/this/mirror"
-ENV PHP_SHA256="989c04cc879ee71a5e1131db867f3c5102f1f7565f805e2bb8bde33f93147fe1" PHP_MD5=""
+ENV PHP_VERSION 7.2.14
+ENV PHP_URL="https://secure.php.net/get/php-7.2.14.tar.xz/from/this/mirror"
+ENV PHP_SHA256="ee3f1cc102b073578a3c53ba4420a76da3d9f0c981c02b1664ae741ca65af84f" PHP_MD5=""
 ###################################################################################################################
 
 RUN set -xe; \
