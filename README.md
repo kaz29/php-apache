@@ -8,10 +8,10 @@
 
 ```
 $ cd 7.2
-$ docker build -t kaz29/php-apache:7.2.14 .
-$ docker tag kaz29/php-apache:7.2.14 kaz29/php-apache:7.2
-$ docker tag kaz29/php-apache:7.2.14 kaz29/php-apache:latest
-$ docker push kaz29/php-apache:7.2.14
+$ docker build -t kaz29/php-apache:7.2.15 .
+$ docker tag kaz29/php-apache:7.2.15 kaz29/php-apache:7.2
+$ docker tag kaz29/php-apache:7.2.15 kaz29/php-apache:latest
+$ docker push kaz29/php-apache:7.2.15
 $ docker push kaz29/php-apache:7.2
 $ docker push kaz29/php-apache:latest
 
