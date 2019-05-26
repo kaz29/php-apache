@@ -26,3 +26,21 @@ $ docker run -it --rm -d --name php-apache kaz29/php-apache:7.2
 
 $ docker run -it --rm -d --name php-apache kaz29/php-apache:7.2-mysql
 ```
+
+## 5.4
+
+### build 
+
+```
+$ cd 5.4
+$ docker build -t kaz29/php-apache:5.4.42 .
+$ docker tag kaz29/php-apache:5.4.42 kaz29/php-apache:5.4
+$ docker push kaz29/php-apache:5.4.42
+$ docker push kaz29/php-apache:5.4
+```
+
+### run 
+
+```
+$ docker run -it --rm -d --name php-apache-5.4 kaz29/php-apache:5.4
+```
