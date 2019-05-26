@@ -1,7 +1,7 @@
 FROM debian:jessie
 
 # persistent / runtime deps
-RUN apt-get update && apt-get install -y ca-certificates curl libpcre3 librecode0 libsqlite3-0 libxml2 libpq5 libmcrypt4 zlib1g libzip2 --no-install-recommends && rm -r /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y ca-certificates curl libpcre3 librecode0 libsqlite3-0 libxml2 libpq5 libmcrypt4 zlib1g libzip2 libgd3 libjpeg62-turbo libpng12-0 libfreetype6 --no-install-recommends && rm -r /var/lib/apt/lists/*
 
 # phpize deps
 RUN apt-get update && apt-get install -y autoconf file g++ gcc libc-dev make pkg-config re2c --no-install-recommends && rm -r /var/lib/apt/lists/*
@@ -49,6 +49,10 @@ RUN buildDeps=" \
         zlib1g-dev \
         libzip-dev \
         libmcrypt-dev \
+		libgd-dev \
+		libjpeg-dev \
+		libpng12-dev \
+		libfreetype6-dev \
 	" \
 	&& set -x \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends && rm -rf /var/lib/apt/lists/* \
@@ -78,6 +82,11 @@ RUN buildDeps=" \
 		--enable-mbstring \
 		--enable-ftp \
         --with-mcrypt \
+		--with-gd \
+		--with-jpeg-dir=/usr \
+		--with-png-dir=/usr \
+		--with-freetype-dir=/usr \
+		--enable-gd-native-ttf \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& { find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; } \
