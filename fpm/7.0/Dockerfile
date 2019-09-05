@@ -248,6 +248,11 @@ RUN set -eux; \
 		echo 'listen = 9000'; \
 	} | tee php-fpm.d/zz-docker.conf
 
+RUN set -eux; \
+	if [ -f /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini ]; then \
+		echo 'apc.enable_cli=1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini; \
+	fi;
+
 # Override stop signal to stop process gracefully
 # https://github.com/php/php-src/blob/17baa87faddc2550def3ae7314236826bc1b1398/sapi/fpm/php-fpm.8.in#L163
 STOPSIGNAL SIGQUIT
