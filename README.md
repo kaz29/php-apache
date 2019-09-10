@@ -74,6 +74,8 @@ docker build -t kaz29/php-batch:7.2.15 .
 
 ```
 $ cd fpm/7.0/
-$ docker build -t tamurayk/php-fmp:7.0.33 .
-$ docker tag tamurayk/php-fmp:7.0.33 tamurayk/php-fmp:7.0
+$ docker build -t tamurayk/php-fpm:7.0.33 .
+$ docker tag tamurayk/php-fpm:7.0.33 tamurayk/php-fpm:7.0
+$ docker push tamurayk/php-fpm:7.0
+$ docker push tamurayk/php-fpm:7.0.33
 ```
