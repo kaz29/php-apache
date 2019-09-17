@@ -180,7 +180,8 @@ RUN set -eux; \
 	cd /; \
 	docker-php-source delete; \
 	\
-# -
+# install php zip extention
+# (Run before "purge --auto-remove" because it requires PHPIZE_DEPS.)
 	pecl update-channels; \
 	pecl install zip; \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
