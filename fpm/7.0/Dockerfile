@@ -181,7 +181,7 @@ RUN set -eux; \
 	docker-php-source delete; \
 	\
 # install php zip extention
-# (Run before "purge --auto-remove" because it requires PHPIZE_DEPS.)
+# (Run before "purge --auto-remove" because requires PHPIZE_DEPS.)
 	pecl update-channels; \
 	pecl install zip; \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
@@ -209,7 +209,7 @@ RUN set -ex \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && docker-php-ext-enable opcache \
-	&& docker-php-ext-enable zip \
+    && docker-php-ext-enable zip \
     # install composer
     && { \
       curl -sS https://getcomposer.org/installer; \
