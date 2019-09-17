@@ -26,7 +26,8 @@ ENV PHPIZE_DEPS \
 		libc-dev \
 		make \
 		pkg-config \
-		re2c
+		re2c \
+		libzip4
 
 # persistent / runtime deps
 RUN set -eux; \
@@ -35,6 +36,8 @@ RUN set -eux; \
 		$PHPIZE_DEPS \
 		ca-certificates \
 		curl \
+		git \
+		unzip \
 		xz-utils \
 	; \
 	rm -rf /var/lib/apt/lists/*
@@ -177,6 +180,9 @@ RUN set -eux; \
 	cd /; \
 	docker-php-source delete; \
 	\
+# -
+	pecl update-channels; \
+	pecl install zip; \
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
 	apt-mark auto '.*' > /dev/null; \
 	[ -z "$savedAptMark" ] || apt-mark manual $savedAptMark; \
@@ -202,6 +208,7 @@ RUN set -ex \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && docker-php-ext-enable opcache \
+	&& docker-php-ext-enable zip \
     # install composer
     && { \
       curl -sS https://getcomposer.org/installer; \
