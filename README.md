@@ -86,8 +86,8 @@ $ docker push tamurayk/php-fpm:7.0.33
 
 ```
 $ cd fpm/7.3/
-$ docker build -t tamurayk/php-fpm:7.0.33 .
-$ docker tag tamurayk/php-fpm:7.0.33 tamurayk/php-fpm:7.0
-$ docker push tamurayk/php-fpm:7.0
-$ docker push tamurayk/php-fpm:7.0.33
+$ docker build -t tamurayk/php-fpm:7.3.9 .
+$ docker tag tamurayk/php-fpm:7.3.9 tamurayk/php-fpm:7.3
+$ docker push tamurayk/php-fpm:7.3
+$ docker push tamurayk/php-fpm:7.3.9
 ```
