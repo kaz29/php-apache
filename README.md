@@ -67,3 +67,27 @@ $ docker run -it --rm -d --name php-apache-5.4 kaz29/php-apache:5.4
 ```
 docker build -t kaz29/php-batch:7.2.15 .
 ```
+
+## fpm/7.0
+
+### build
+
+```
+$ cd fpm/7.0/
+$ docker build -t tamurayk/php-fpm:7.0.33 .
+$ docker tag tamurayk/php-fpm:7.0.33 tamurayk/php-fpm:7.0
+$ docker push tamurayk/php-fpm:7.0
+$ docker push tamurayk/php-fpm:7.0.33
+```
+
+## fpm/7.3
+
+### build
+
+```
+$ cd fpm/7.3/
+$ docker build -t tamurayk/php-fpm:7.3.9 .
+$ docker tag tamurayk/php-fpm:7.3.9 tamurayk/php-fpm:7.3
+$ docker push tamurayk/php-fpm:7.3
+$ docker push tamurayk/php-fpm:7.3.9
+```
