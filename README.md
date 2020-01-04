@@ -8,9 +8,9 @@
 
 ```
 $ cd 7.3
-$ docker build -t kaz29/php-apache:7.3.10 .
-$ docker tag kaz29/php-apache:7.3.10 kaz29/php-apache:7.3
-$ docker push kaz29/php-apache:7.3.10
+$ docker build -t kaz29/php-apache:7.3.13 .
+$ docker tag kaz29/php-apache:7.3.13 kaz29/php-apache:7.3
+$ docker push kaz29/php-apache:7.3.13
 $ docker push kaz29/php-apache:7.3
 
 ```
