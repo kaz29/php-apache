@@ -2,6 +2,19 @@
 
 [PHP公式 Docker](https://github.com/docker-library/php) を元に、pgsql/pdo/intl/zip を追加したもの。
 
+
+## 7.4
+
+### build 
+
+```
+$ cd 7.4
+$ docker build -t kaz29/php-apache:7.4.7 .
+$ docker tag kaz29/php-apache:7.4.7 kaz29/php-apache:7.4
+$ docker push kaz29/php-apache:7.4.7
+$ docker push kaz29/php-apache:7.4
+```
+
 ## 7.3
 
 ### build 
