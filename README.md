@@ -39,10 +39,19 @@ $ docker tag kaz29/php-apache:7.2.21 kaz29/php-apache:7.2
 $ docker tag kaz29/php-apache:7.2.21 kaz29/php-apache:latest
 $ docker push kaz29/php-apache:7.2.21
 $ docker push kaz29/php-apache:7.2
-$ docker push kaz29/php-apache:latest
 
 $ docker build -f Dockerfile.mysql -t kaz29/php-apache:7.2-mysql .
 
+```
+
+## 7.1
+
+### build 
+
+```
+$ cd 7.1
+$ docker build -t kaz29/php-apache:7.1.32 .
+$ docker push kaz29/php-apache:7.1.32
 ```
 
 ### run 
