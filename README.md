@@ -15,6 +15,18 @@ $ docker push kaz29/php-apache:7.4.7
 $ docker push kaz29/php-apache:7.4
 ```
 
+## 7.4-mysql
+
+### build
+
+```
+$ cd 7.4
+$ docker build -f Dockerfile.mysql -t tamurayk/php-apache:7.4.7-mysql .
+$ docker tag tamurayk/php-apache:7.4.7-mysql tamurayk/php-apache:7.4-mysql
+$ docker push tamurayk/php-apache:7.4.7-mysql
+$ docker push tamurayk/php-apache:7.4-mysqdocker push tamurayk/php-apache:7.4-mysqll
+```
+
 ## 7.3
 
 ### build 
