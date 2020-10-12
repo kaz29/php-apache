@@ -9,9 +9,9 @@
 
 ```
 $ cd 7.4
-$ docker build -t kaz29/php-apache:7.4.7 .
-$ docker tag kaz29/php-apache:7.4.7 kaz29/php-apache:7.4
-$ docker push kaz29/php-apache:7.4.7
+$ docker build -t kaz29/php-apache:7.4.11 .
+$ docker tag kaz29/php-apache:7.4.11 kaz29/php-apache:7.4
+$ docker push kaz29/php-apache:7.4.11
 $ docker push kaz29/php-apache:7.4
 ```
 
@@ -21,10 +21,10 @@ $ docker push kaz29/php-apache:7.4
 
 ```
 $ cd 7.4
-$ docker build -f Dockerfile.mysql -t kaz29/php-apache:7.4.7-mysql .
-$ docker tag kaz29/php-apache:7.4.7-mysql kaz29/php-apache:7.4-mysql
-$ docker push kaz29/php-apache:7.4.7-mysql
-$ docker push kaz29/php-apache:7.4-mysqdocker push kaz29/php-apache:7.4-mysqll
+$ docker build -f Dockerfile.mysql -t kaz29/php-apache:7.4.11-mysql .
+$ docker tag kaz29/php-apache:7.4.11-mysql kaz29/php-apache:7.4-mysql
+$ docker push kaz29/php-apache:7.4.11-mysql
+$ docker push kaz29/php-apache:7.4-mysql
 ```
 
 ## 7.3
