@@ -38,6 +38,7 @@ RUN set -eux; \
 		xz-utils \
 		git \
 		unzip \
+		libzip-dev \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
@@ -179,7 +180,6 @@ RUN set -eux; \
 		libssl-dev \
 		libxml2-dev \
 		zlib1g-dev \
-		libzip-dev \
 		libreadline-dev \
 		${PHP_EXTRA_BUILD_DEPS:-} \
 	; \
@@ -281,10 +281,12 @@ RUN docker-php-ext-enable sodium
 RUN set -ex \
     && pecl install redis \
     && pecl install apcu \
+    && pecl install zip \
     && pecl install xdebug \
     && docker-php-ext-enable sodium \
     && docker-php-ext-enable apcu \
     && docker-php-ext-enable opcache \
+    && docker-php-ext-enable zip \
     && a2enmod rewrite \
     # install composer
     && { \

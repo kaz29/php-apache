@@ -36,6 +36,8 @@ RUN set -eux; \
 		ca-certificates \
 		curl \
 		xz-utils \
+		git \
+		unzip \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
@@ -172,6 +174,9 @@ RUN set -eux; \
 		libssl-dev \
 		libxml2-dev \
 		zlib1g-dev \
+		libpq-dev \
+		libzip-dev \
+		libreadline-dev \
 		${PHP_EXTRA_BUILD_DEPS:-} \
 	; \
 	rm -rf /var/lib/apt/lists/*; \
@@ -221,6 +226,11 @@ RUN set -eux; \
 		--with-libedit \
 		--with-openssl \
 		--with-zlib \
+		--enable-intl \
+		--with-pgsql \
+		--with-pdo-pgsql \
+		--with-zip \
+		--enable-opcache \
 		\
 # in PHP 7.4+, the pecl/pear installers are officially deprecated (requiring an explicit "--with-pear")
 		--with-pear \
@@ -267,7 +277,19 @@ RUN set -eux; \
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 
 # sodium was built as a shared module (so that it can be replaced later if so desired), so let's enable it too (https://github.com/docker-library/php/issues/598)
-RUN docker-php-ext-enable sodium
+RUN set -ex \
+    && pecl install redis \
+    && pecl install apcu \
+    && pecl install xdebug \
+	&& docker-php-ext-enable sodium \
+    && docker-php-ext-enable apcu \
+    && docker-php-ext-enable opcache \
+    && a2enmod rewrite \
+    # install composer
+    && { \
+      curl -sS https://getcomposer.org/installer; \
+    } | php \
+    && mv composer.phar /usr/local/bin/composer
 
 ENTRYPOINT ["docker-php-entrypoint"]
 # https://httpd.apache.org/docs/2.4/stopping.html#gracefulstop

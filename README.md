@@ -3,6 +3,21 @@
 [PHP公式 Docker](https://github.com/docker-library/php) を元に、pgsql/pdo/intl/zip を追加したもの。
 
 
+## 8.0
+
+### build 
+
+```
+$ cd 8.0
+$ docker build -t kaz29/php-apache:8.0.0 .
+$ docker push kaz29/php-apache:8.0.0
+```
+### run 
+
+```
+$ docker run -it --rm -d --name php-apache-8.0.0 kaz29/php-apache:8.0.0
+```
+
 ## 7.4
 
 ### build 
