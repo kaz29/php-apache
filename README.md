@@ -7,7 +7,7 @@
 ### build 
 
 ```
-$ cd 8.0.11
+$ cd 8.0.12
 $ docker build -t kaz29/php-apache:8.0.12 .
 $ docker push kaz29/php-apache:8.0.12
 ```
@@ -15,6 +15,20 @@ $ docker push kaz29/php-apache:8.0.12
 
 ```
 $ docker run -it --rm -d --name php-apache-8.0.12 kaz29/php-apache:8.0.12
+```
+
+### with ldap
+
+#### build 
+
+```
+$ docker build -f Dockerfile.w_ldap -t kaz29/php-apache:8.0.12-with-ldap .
+$ docker push kaz29/php-apache:8.0.12-with-ldap
+```
+#### run 
+
+```
+$ docker run -it --rm -d --name php-apache-8.0.12-with-ldap kaz29/php-apache:8.0.12-with-ldap
 ```
 
 ## 8.0.11
