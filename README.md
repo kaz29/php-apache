@@ -2,6 +2,28 @@
 
 [PHP公式 Docker](https://github.com/docker-library/php) を元に、pgsql/pdo/intl/zip を追加したもの。
 
+## マルチプラットホーム向けのビルド
+
+- [https://docs.docker.jp/docker-for-mac/multi-arch.html#id7](https://docs.docker.jp/docker-for-mac/multi-arch.html#id7) ここを参考にビルド環境を構築すること
+
+**最新のphp-8.0.12以降はamd64, arm64/v8 のイメージを用意することにします**
+
+
+## 8.0.13
+
+### build 
+
+```
+$ cd 8.0.13
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.13 .
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.13 --push .
+```
+### run 
+
+```
+$ docker run -it --rm -d --name php-apache-8.0.12 kaz29/php-apache:8.0.12
+```
+
 ## 8.0.12
 
 ### build 
@@ -10,6 +32,9 @@
 $ cd 8.0.12
 $ docker build -t kaz29/php-apache:8.0.12 .
 $ docker push kaz29/php-apache:8.0.12
+// ↓ multi platform
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.12 .
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.12 --push .
 ```
 ### run 
 
