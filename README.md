@@ -8,6 +8,21 @@
 
 **最新のphp-8.0.12以降はamd64, arm64/v8 のイメージを用意することにします**
 
+## 8.1.1
+
+### build 
+
+```
+$ cd 8.1.1
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.1.1 .
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.1.1 --push .
+```
+### run 
+
+```
+$ docker run -it --rm -d --name php-apache-8.1.1 kaz29/php-apache:8.1.1
+```
+
 ## 8.1.0
 
 ### build 
@@ -21,6 +36,21 @@ $ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:
 
 ```
 $ docker run -it --rm -d --name php-apache-8.1.0 kaz29/php-apache:8.1.0
+```
+
+## 8.0.14
+
+### build 
+
+```
+$ cd 8.0.14
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.14 .
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.14 --push .
+```
+### run 
+
+```
+$ docker run -it --rm -d --name php-apache-8.0.14 kaz29/php-apache:8.0.14
 ```
 
 ## 8.0.13
