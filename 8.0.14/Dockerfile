@@ -38,6 +38,7 @@ RUN set -eux; \
 		xz-utils \
 		git \
 		unzip \
+		libzip-dev \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
@@ -173,7 +174,6 @@ RUN set -eux; \
 		libxml2-dev \
 		zlib1g-dev \
 		libpq-dev \
-		libzip-dev \
 		libgmp3-dev \
 	; \
 	\
@@ -288,9 +288,11 @@ RUN set -ex \
     && pecl install redis \
     && pecl install apcu \
     && pecl install xdebug \
+    && pecl install zip \
 	&& docker-php-ext-enable sodium \
     && docker-php-ext-enable apcu \
     && docker-php-ext-enable opcache \
+    && docker-php-ext-enable zip \
     && a2enmod rewrite \
     # install composer
     && { \
