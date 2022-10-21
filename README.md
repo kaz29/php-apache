@@ -68,6 +68,21 @@ $ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:
 $ docker run -it --rm -d --name php-apache-8.1.0 kaz29/php-apache:8.1.0
 ```
 
+## 8.0.24
+
+### build 
+
+```
+$ cd 8.0.24
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.24 .
+$ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:8.0.24 --push .
+```
+### run 
+
+```
+$ docker run -it --rm -d --name php-apache-8.0.24 kaz29/php-apache:8.0.24
+```
+
 ## 8.0.20
 
 ### build 
@@ -82,7 +97,6 @@ $ docker buildx build --platform linux/amd64,linux/arm64/v8 -t kaz29/php-apache:
 ```
 $ docker run -it --rm -d --name php-apache-8.0.20 kaz29/php-apache:8.0.20
 ```
-
 ## 8.0.14
 
 ### build 
