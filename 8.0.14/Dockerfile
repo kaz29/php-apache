@@ -228,6 +228,7 @@ RUN set -eux; \
 		--with-zip \
 		--with-gmp \
 		--enable-opcache \
+		--enable-sockets \
 		\
 # in PHP 7.4+, the pecl/pear installers are officially deprecated (requiring an explicit "--with-pear")
 		--with-pear \
