@@ -1,0 +1,38 @@
+name: Build and push image to Docker Hub
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set tag name to env
+        run: | 
+          echo "TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - run: echo ${{github.ref_name}}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: './${{ env.TAG }}'
+          file: Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: kaz29/php-apache:${{ env.TAG }}
