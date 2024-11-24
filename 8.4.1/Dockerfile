@@ -292,7 +292,10 @@ COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
 RUN set -ex \
     && pecl install redis \
     && pecl install apcu \
-    && pecl install xdebug \
+    # install pie
+    && curl -L --output /usr/local/bin/pie https://github.com/php/pie/releases/latest/download/pie.phar \
+    && chmod +x /usr/local/bin/pie \
+    && pie install xdebug/xdebug:3.4.0beta1 \
     && docker-php-ext-enable sodium \
     && docker-php-ext-enable apcu \
     && docker-php-ext-enable opcache \
